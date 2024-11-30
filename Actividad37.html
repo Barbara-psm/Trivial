@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad37</title>
+
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 130vh;
+            margin: 0;
+            background-image: linear-gradient(to bottom right, hotpink, #F4F4F4);
+        }
+
+        #divHeader {
+            background-color: #343A40;
+            box-shadow: 3px 3px 10px gray;
+            color: white;
+            text-shadow: /* borde del título */
+                -2px -2px hotpink,
+                /* Esquinas */
+                -2px 2px hotpink,
+                2px -2px hotpink,
+                2px 2px hotpink,
+                -2px 0 hotpink,
+                /* Lados */
+                2px 0 hotpink,
+                0 -2px hotpink,
+                0 2px hotpink;
+            margin-bottom: 0;
+            height: 90px;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #tituloPagina {
+            font-size: 36pt;
+            font-weight: bold;
+            width: auto;
+        }
+
+        nav {
+            background-color: #F4F4F4;
+            text-decoration: none;
+            font-size: 14pt;
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 0;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav p {
+            color: white;
+        }
+
+        nav u1 {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav u1 li {
+            margin: 5px;
+            background-color: hotpink;
+            border-radius: 50%;
+            width: 20px;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav u1 li:hover {
+            text-decoration: underline;
+        }
+
+        nav u1 li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav u1 li.correct {
+            background-color: green;
+        }
+
+        nav u1 li.incorrect {
+            background-color: red;
+        }
+
+        #divContenedor {
+            background-color: #ffffff;
+            width: 600px;
+            margin: 4rem auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            font-size: 14pt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imagenPregunta {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #divBotones {
+            display: flex;
+            align-items: center;
+            align-content: center;
+            gap: 20px;
+        }
+
+        #divBotones button {
+            font-size: 12pt;
+            height: 30px;
+            background-color: hotpink;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #divBotones button:disabled {
+            background-color: rgb(225, 91, 158);
+            color: rgb(210, 210, 210);
+            border: 1px solid #c0c0c0;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        #divBotones button:hover {
+            background-color: rgb(225, 91, 158);
+            box-shadow: 2px 2px 5px gainsboro;
+        }
+
+        #botonResolver {
+            width: 100px;
+        }
+
+        #botonPasar {
+            width: 200px;
+        }
+
+        #botonReiniciar {
+            width: 180px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #343A40;
+            padding: 5px;
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            margin-top: 100px;
+            font-size: 12pt;
+            color: white;
+            clear: both;
+            margin-left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div id="divHeader">
+            <p id="tituloPagina" class="elementoHeader">Trivial de Cultura General</p>
+        </div>
+    </header>
+
+    <nav>
+        <u1>
+            <li><a href=""></a>1</li>
+            <li><a href=""></a>2</li>
+            <li><a href=""></a>3</li>
+            <li><a href=""></a>4</li>
+            <li><a href=""></a>5</li>
+            <li><a href=""></a>6</li>
+            <li><a href=""></a>7</li>
+            <li><a href=""></a>8</li>
+            <li><a href=""></a>9</li>
+            <li><a href=""></a>10</li>
+        </u1>
+    </nav>
+
+    <div id="divContenedor">
+
+        <div class="pregunta">
+
+            <div id="divEnunciadoOpciones">
+                <h3 id="enunciadoPregunta"></h3>
+                <img id="imagenPregunta" src="" alt="Imagen de la pregunta">
+                <div id="opciones">
+
+                    <input type="radio" id="opcionUno" name="opcion" value="1">
+                    <label for="opcionUno" id="labelOpcionUno"></label><br>
+
+                    <input type="radio" id="opcionDos" name="opcion" value="2">
+                    <label for="opcionDos" id="labelOpcionDos"></label><br>
+
+                    <input type="radio" id="opcionTres" name="opcion" value="3">
+                    <label for="opcionDos" id="labelOpcionTres"></label><br>
+
+                    <input type="radio" id="opcionCuatro" name="opcion" value="4">
+                    <label for="opcionDos" id="labelOpcionCuatro"></label><br>
+
+                </div>
+            </div>
+
+            <p id="infRespuesta"></p>
+            <div id="divBotones">
+                <button type="button" id="botonResolver" onclick="resolver()">Resolver</button>
+                <button type="button" id="botonPasar" onclick="siguientePregunta()" disabled>Siguiente pregunta</button>
+                <span id="contadorAciertos">Aciertos: 0/10</span> <!-- Contador de aciertos -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 Trivia de Cultura General. Todos los derechos reservados.
+    </footer>
+
+</body>
+
+<script>
+
+    class pregunta {
+        constructor(enunciado, opciones, respuesta, imagen) {
+            this.enunciado = enunciado;
+            this.opciones = opciones;
+            this.respuesta = respuesta;
+            this.imagen = imagen;
+        }
+
+        //Getter
+        get getEnunciado() {
+            return this.enunciado;
+        }
+
+        get getOpciones() {
+            return this.opciones;
+        }
+
+        get getRespuesta() {
+            return this.respuesta;
+        }
+
+        get getImagen() {
+            return this.imagen;
+        }
+
+        //Setter
+        set setEnunciado(valor) {
+            this.enunciado = valor;
+        }
+
+        set setOpciones(valores) {
+            this.opciones = valores;
+        }
+
+        set setRespuesta(valor) {
+            this.respuesta = valor;
+        }
+
+        set setImagen(valor) {
+            this.imagen = valor
+        }
+
+    }
+    // crear objetos pregunta
+    var preg1 = new pregunta("¿Cuántos planetas hay en el sistema solar?", ["7", "8", "9", "10"], 2, "https://media.cnn.com/api/v1/images/stellar/prod/cnne-1776883-20241104-hidden-planet-16x9.jpg?q=w_2000,c_fill");
+
+    var preg2 = new pregunta("La tierra es:", ["Plana", "Esférica", "Cuadrada", "Triangular"], 2, "https://fundeu.fiile.org.ar/library/timthumb/timthumb.php?src=/uploadsfotos/terraplanistas.png&w=720");
+
+    var preg3 = new pregunta("¿Quién pintó la Mona Lisa?", ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"], 3, "https://pymstatic.com/39862/conversions/frases-leonardo-da-vinci-wide_webp.webp");
+
+    var preg4 = new pregunta("¿Cuál es el océano más grande?", ["Atlántico", "Índico", "Ártico", "Pacífico"], 4, "https://i0.wp.com/elcuadernodigital.com/wp-content/uploads/2023/02/oceanopacifico.jpg?fit=1200%2C900&ssl=1");
+
+    var preg5 = new pregunta("¿Qué continente tiene más países?", ["Asia", "África", "Europa", "América"], 2, "https://upload.wikimedia.org/wikipedia/commons/6/6d/Continentes_Wikipedia.svg");
+
+    var preg6 = new pregunta("¿Quién inventó la bombilla eléctrica?", ["Nikola Tesla", "Marie Curie", "Thomas Edison", "Albert Einstein"], 3, "https://content.nationalgeographic.com.es/medio/2023/10/10/thomas-edison_46792c84_231010111023_1200x630.jpg");
+
+    var preg7 = new pregunta("¿Quién fue el primer hombre en pisar la Luna?", ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "John Glenn"], 3, "https://www.estrelladigital.es/wp-content/uploads/2022/11/2014022420550687235.jpg");
+
+    var preg8 = new pregunta("¿Cuántos continentes existen en el mundo?", ["5", "6", "7", "8"], 3, "https://media.traveler.es/photos/6137719ecfa50ebf3bf4dca5/master/w_1600%2Cc_limit/128340.png");
+
+    var preg9 = new pregunta("¿Qué gas forma el 78% de la atmósfera terrestre?", ["Oxígeno", "Dióxido de carbono", "Nitrógeno", "Helio"], 3, "https://www.ngenespanol.com/wp-content/uploads/2023/05/que-es-la-atmosfera-de-que-se-compone-y-cual-es-su-funcion.jpg");
+
+    var preg10 = new pregunta("¿Cómo se llama el río más largo del mundo?", ["Amazonas", "Nilo", "Yangtsé", "Misisipi"], 1, "https://media.cnn.com/api/v1/images/stellar/prod/cnne-1464766-rio-amazonas.jpg?c=16x9&q=h_833,w_1480,c_fill");
+
+    var preguntas = [preg1, preg2, preg3, preg4, preg5, preg6, preg7, preg8, preg9, preg10]; // array con objetos pregunta
+    var indicePregunta = Math.floor(Math.random() * preguntas.length); // pregunta en la que se empieza la partida
+    var aciertos = 0; //contador de aciertos
+    var preguntasRespondidas = 0; // contador para preguntas respondidas hasta ahora
+
+    // actualizar la pregunta
+    function actualizarPregunta(pregunta) {
+
+        document.getElementById("enunciadoPregunta").innerHTML = pregunta.getEnunciado; // cambiar el enunciado
+
+        // cambiar la imagen de la pregunta
+        let imagenPregunta = document.getElementById("imagenPregunta");
+        imagenPregunta.src = pregunta.getImagen;
+        imagenPregunta.alt = `Imagen relacionada con la pregunta: ${pregunta.getEnunciado}`;
+
+        // establecer las opciones de los radiobotones
+        let opciones = pregunta.getOpciones;
+        for (let i = 0; i < opciones.length; i++) {
+            let radioButton = document.getElementById(`opcion${["Uno", "Dos", "Tres", "Cuatro"][i]}`);
+            let label = document.getElementById(`labelOpcion${["Uno", "Dos", "Tres", "Cuatro"][i]}`);
+            radioButton.value = opciones[i];
+            label.innerHTML = opciones[i];
+        }
+
+        // Habilitar el botón "resolver"
+        document.getElementById("botonResolver").disabled = false;
+
+        // Deshabilitar el botón "siguiente pregunta"
+        document.getElementById("botonPasar").disabled = true;
+
+    }
+
+    // pasar a la siguiente pregunta
+    function siguientePregunta() {
+
+        if (preguntasRespondidas >= 10) return; //si ya se han respondido las 10 preguntas
+
+        indicePregunta = (indicePregunta + 1) % preguntas.length;
+        actualizarPregunta(preguntas[indicePregunta]);
+        document.getElementById("infRespuesta").innerText = ""; // se limpia el mensaje de la pregunta anterior
+
+        // desmarcar todos los radiobotones
+        document.querySelectorAll('input[name="opcion"]').forEach(radio => {
+            radio.checked = false;
+        });
+    }
+
+    // mostrar si es correcta o incorrecta
+    function resolver() {
+        let seleccionada = document.querySelector('input[name="opcion"]:checked');
+        let currentListItem = document.querySelectorAll('nav u1 li')[preguntasRespondidas]; // numero en el que estoy ahora
+        if (seleccionada) {
+            let respuestaCorrecta = preguntas[indicePregunta].getOpciones[preguntas[indicePregunta].getRespuesta - 1]; // conseguir el texto de la respuesta correcta
+            if (seleccionada.value === respuestaCorrecta) {
+                document.getElementById("infRespuesta").innerText = "¡Correcto!";
+                document.getElementById("infRespuesta").style.color = "green";
+                aciertos++;
+                document.getElementById("contadorAciertos").innerText = `Aciertos: ${aciertos}/10`;
+                currentListItem.classList.add('correct');
+            } else {
+                document.getElementById("infRespuesta").innerText = "Incorrecto.";
+                document.getElementById("infRespuesta").style.color = "red";
+                currentListItem.classList.add('incorrect');
+            }
+
+            preguntasRespondidas++; // Incrementar contador de preguntas respondidas
+
+            // Habilitar el botón "Siguiente pregunta"
+            document.getElementById("botonPasar").disabled = false;
+
+            // deshabilitar el botón "resolver"
+            document.getElementById("botonResolver").disabled = true;
+
+            if (preguntasRespondidas >= 10) {
+                finalizarJuego();
+            }
+
+        } else {
+            document.getElementById("infRespuesta").innerText = "Por favor, selecciona una opción.";
+            document.getElementById("infRespuesta").style.color = "black";
+        }
+    }
+
+    // Finalizar el juego
+    function finalizarJuego() {
+        // Deshabilitar todos los botones
+        document.getElementById("botonResolver").disabled = true;
+        document.getElementById("botonPasar").disabled = true;
+
+        // Generar el botón para reiniciar la partida
+        const divBotones = document.getElementById("divBotones");
+        const botonReiniciar = document.createElement("button");
+        botonReiniciar.id = "botonReiniciar";
+        botonReiniciar.innerText = "Empezar de nuevo";
+        botonReiniciar.onclick = () => location.reload(); // Recargar la página
+        divBotones.appendChild(botonReiniciar);
+    }
+
+    // comenzar con una pregunta en posición random
+    actualizarPregunta(preguntas[indicePregunta]);
+
+</script>
+
+</html>
